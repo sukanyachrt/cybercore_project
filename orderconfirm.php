@@ -102,7 +102,7 @@ $connect->connectData();
                                     <div class="col-12 d-flex justify-content-center">
                                         <div class="col-12 text-end">
                                             <a href="cart.php"  class="btn btn-secondary"><i class="bi bi-arrow-left-circle"></i> ย้อนกลับ</a>
-                                            <a href="#" onclick="stepper.next()" class="btn btn-danger"><i class="bi bi-arrow-right-circle"></i> ต่อไป</a>
+                                            <a href="#" onclick="stepper.next()" class="btn btn-danger maincolor"><i class="bi bi-arrow-right-circle"></i> ต่อไป</a>
 
                                         </div>
 
@@ -139,28 +139,28 @@ $connect->connectData();
                                                                             <td>กสิกรไทย</td>
                                                                             <td>สำนักสีลม</td>
                                                                             <td>1234567890</td>
-                                                                            <td>บจก. บางปะหันบรรจุภัณฑ์</td>
+                                                                            <td>บจก. cybercore</td>
                                                                         </tr>
                                                                         <tr class="">
                                                                             <td><img src="assets/img/bank/bbl.gif" width="50" align="absmiddle"></td>
                                                                             <td>กรุงเทพ</td>
                                                                             <td>สำนักงานใหญ่สีลม</td>
                                                                             <td>1234567890</td>
-                                                                            <td>บจก. บางปะหันบรรจุภัณฑ์</td>
+                                                                            <td>บจก. cybercore</td>
                                                                         </tr>
                                                                         <tr class="odd">
                                                                             <td><img src="assets/img/bank/ktb.gif" width="50" align="absmiddle"></td>
                                                                             <td>กรุงไทย</td>
                                                                             <td>สีลม</td>
                                                                             <td>1234567890</td>
-                                                                            <td>บจก. บางปะหันบรรจุภัณฑ์</td>
+                                                                            <td>บจก. cybercore</td>
                                                                         </tr>
                                                                         <tr class="">
                                                                             <td><img src="assets/img/bank/scb.gif" width="50" align="absmiddle"></td>
                                                                             <td>ไทยพาณิชย์</td>
                                                                             <td>ปาโซ่ ทาวเวอร์</td>
                                                                             <td>1234567890</td>
-                                                                            <td>บจก. บางปะหันบรรจุภัณฑ์</td>
+                                                                            <td>บจก. cybercore</td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -219,7 +219,7 @@ $connect->connectData();
                                     <div class="col-12 d-flex justify-content-center">
                                         <div class="col-12 text-end">
                                             <a href="#" onclick="stepper.previous()" class="btn btn-secondary"><i class="bi bi-arrow-left-circle"></i> ย้อนกลับ</a>
-                                            <a href="#" onclick="confirmorder()" class="btn btn-danger"><i class="bi bi-arrow-right-circle"></i> ยืนยันการสั่งซื้อ</a>
+                                            <a href="#" onclick="confirmorder()" class="btn btn-danger maincolor"><i class="bi bi-arrow-right-circle"></i> ยืนยันการสั่งซื้อ</a>
 
                                         </div>
 
@@ -246,7 +246,7 @@ $connect->connectData();
                                                                     <p class="order_money">จำนวนเงิน : -</p>
                                                                     <p class="order_date">เวลาการสั่งซื้อ : -</p>
                                                                     <div class="text-center">
-                                                                        <button onclick="orderdetail()" id="orderdetail"  class="btn btn-danger"><i class="bi bi-file-earmark-arrow-up-fill"></i> แจ้งชำระเงิน</button>
+                                                                        <button onclick="orderdetail()" id="orderdetail"  class="btn btn-danger maincolor"><i class="bi bi-file-earmark-arrow-up-fill"></i> แจ้งชำระเงิน</button>
 
                                                                     </div>
                                                                 </div>
