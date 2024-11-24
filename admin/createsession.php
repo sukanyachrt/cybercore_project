@@ -10,7 +10,7 @@ if (isset($_POST['status']) && $_POST['status'] === 'ok') {
     $_SESSION['employee_lname'] =$data['employee_lname'];
     $_SESSION['employee_status'] =$data['employee_status'];
     if($_SESSION['employee_status']=="1"){
-        echo json_encode(["data"=>"ok","page"=>"views/product/index.php"]);
+        echo json_encode(["data"=>"ok","page"=>"views/order/index.php"]);
     }
    
 } else {

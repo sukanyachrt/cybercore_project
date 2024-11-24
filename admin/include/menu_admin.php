@@ -78,7 +78,7 @@ while ($rsorder = $order->fetch_AssocData()) {
 
             </a>
         </li>
-        <li class="menu-item open" data-menu="general">
+        <li class="menu-item" data-menu="general">
             <a href="javascript:void(0)" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-grid"></i>
                 <div data-i18n="User interface">จัดการข้อมูลทั่วไป</div>
