@@ -34,25 +34,7 @@ $connect->connectData();
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
-    <!-- <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>เกี่ยวกับ Us</h2>
-          <p>เกี่ยวกับ <span>บางปะหันบรรจุภัณฑ์</span></p>
-        </div>
-
-        <div class="row gy-4">
-          <div class="col-lg-50 d-flexposition-relative mt-4">
-            <img src="assets/img/" class="img-fluid" alt="">
-          </div>
-
-        </div>
-      </div>
-
-      </div>
-    </section> -->
+    
 
 
     <section id="product" class="product">

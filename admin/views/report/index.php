@@ -430,7 +430,7 @@
     function printReportofYear() {
 
         var tableContents = $('.tbreportsell_year').prop('outerHTML');
-        var additionalHeader = '<div class="text-center mt-4" style="font-size:16px;">ร้านบางปะหันบรรจุภัณฑ์</div>';
+        var additionalHeader = '<div class="text-center mt-4" style="font-size:16px;">ร้าน CyberCore.</div>';
         var additionalContent = '<div class="text-center mb-3" style="font-size:16px;">รายงานยอดขายสรุปรายปี</div>';
         var contentToPrint = additionalHeader + additionalContent + tableContents;
         var printWindow = window.open('', '_blank');
@@ -469,30 +469,7 @@
         var enddate = $('.end-date').val();
         window.open("reportDay.php?start=" + startdate + "&end=" + enddate, '_blank');
 
-        /*var tableContents = $('.tbreportsell_day').prop('outerHTML');
-        var additionalHeader = '<div class="text-center mt-4" style="font-size:16px;">ร้านบางปะหันบรรจุภัณฑ์</div>';
-        var additionalContent = '<div class="text-center mb-3" style="font-size:16px;">รายงานยอดขายสรุปรายวัน</div>';
        
-        var contentToPrint = additionalHeader+additionalContent + tableContents;
-        var printWindow = window.open('', '_blank');
-        printWindow.document.open();
-        printWindow.document.write('<html>');
-        printWindow.document.write('<link rel="preconnect" href="https://fonts.googleapis.com" />');
-        printWindow.document.write('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />');
-        printWindow.document.write('<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />');
-        printWindow.document.write('<link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />');
-        printWindow.document.write('<link rel="stylesheet" href="../../assets/vendor/css/core.css" class="template-customizer-core-css" />');
-        printWindow.document.write('<link rel="stylesheet" href="../../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />');
-        printWindow.document.write('<link rel="stylesheet" href="../../assets/css/demo.css" />');
-        printWindow.document.write('<link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />');
-        printWindow.document.write('<link rel="stylesheet" href="../../assets/vendor/libs/apex-charts/apex-charts.css" />');
-        printWindow.document.write('<style>body {        -webkit-print-color-adjust: exact !important;        print-color-adjust: exact !important;    }</style>');
-        printWindow.document.write('<head><title>รายงานยอดขายสรุปรายวัน</title></head><body>');
-        printWindow.document.write(contentToPrint);
-        printWindow.document.write('</body></html>');
-        printWindow.document.close();
-        printWindow.print();
-        printWindow.close();*/
     }
 
 
@@ -502,30 +479,7 @@
        var sortOrder=$('#sortOrder').val()
         window.open("reportBestofsell.php?sort=" + sortOrder + "&reportrange=" + reportrange, '_blank');
 
-        /*var tableContents = $('.tbreportbestsell').prop('outerHTML');
-        var additionalHeader = '<div class="text-center mt-4" style="font-size:16px;">ร้านบางปะหันบรรจุภัณฑ์</div>';
-        var additionalContent = '<div class="text-center mb-3" style="font-size:16px;">รายงานสินค้าขายดี</div>';
-
-        var contentToPrint = additionalHeader + additionalContent + tableContents;
-        var printWindow = window.open('', '_blank');
-        printWindow.document.open();
-        printWindow.document.write('<html>');
-        printWindow.document.write('<link rel="preconnect" href="https://fonts.googleapis.com" />');
-        printWindow.document.write('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />');
-        printWindow.document.write('<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />');
-        printWindow.document.write('<link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />');
-        printWindow.document.write('<link rel="stylesheet" href="../../assets/vendor/css/core.css" class="template-customizer-core-css" />');
-        printWindow.document.write('<link rel="stylesheet" href="../../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />');
-        printWindow.document.write('<link rel="stylesheet" href="../../assets/css/demo.css" />');
-        printWindow.document.write('<link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />');
-        printWindow.document.write('<link rel="stylesheet" href="../../assets/vendor/libs/apex-charts/apex-charts.css" />');
-        printWindow.document.write('<style>body {        -webkit-print-color-adjust: exact !important;        print-color-adjust: exact !important;    }</style>');
-        printWindow.document.write('<head><title>รายงานสินค้าขายดี</title></head><body>');
-        printWindow.document.write(contentToPrint);
-        printWindow.document.write('</body></html>');
-        printWindow.document.close();
-        printWindow.print();
-        printWindow.close();*/
+      
 
     }
 </script>
