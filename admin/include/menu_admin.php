@@ -1,4 +1,36 @@
 
+<?php
+require_once("../../services/connect_data.php");
+$order = new Connect_Data();
+$order->connectData();
+
+date_default_timezone_set('Asia/Bangkok');
+$order = new Connect_Data();
+$order->connectData();
+
+$connect = new Connect_Data();
+$connect->connectData();
+
+$order->sql = "SELECT *  	FROM 	orders  WHERE  order_status=1";
+$order->queryData();
+$noid = 1;
+$row = $order->num_rows();
+if ($row == 0) {
+
+}
+while ($rsorder = $order->fetch_AssocData()) {
+
+  $timestamp = strtotime($rsorder['order_date']);
+  $new_timestamp = $timestamp + (24 * 3600);
+  $new_date = date("Y-m-d H:i:s", $new_timestamp);
+  if (time() > $new_timestamp) {
+    $connect->sql = "UPDATE 	orders SET order_status=5,order_details='หมดเวลาในการชำระเงิน'  WHERE order_id ='" . $rsorder['order_id'] . "'";
+    $connect->queryData();
+  } else {
+    echo date('d/m/Y H:i:s', strtotime($new_date));
+  }
+}
+?>
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="" class="app-brand-link">
@@ -15,7 +47,37 @@
     <ul class="menu-inner py-1">
 
         <!-- Components -->
+        
         <li class="menu-header small text-uppercase"><span class="menu-header-text">เมนู Admin</span></li>
+        <li class="menu-item" data-menu="Order">
+            <a href="../order/index.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-list-ul"></i>
+                <div data-i18n="Basic">รายการสั่งซื้อทั้งหมด</div>
+
+            </a>
+        </li>
+        <li class="menu-item" data-menu="Payment">
+            <a href="../payment/index.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-credit-card"></i>
+                <div data-i18n="Basic">ข้อมูลการชำระเงิน</div>
+                <?php
+                $order->sql = "SELECT
+                                            count( * ) AS numberorder 
+                                            FROM   orders WHERE order_status='2'";
+                $order->queryData();
+                $rsorder = $order->fetch_AssocData();
+                
+                if($rsorder['numberorder']>0){
+                    ?>
+                    <div class="badge bg-danger rounded-pill ms-auto"><?=$rsorder['numberorder']?></div>
+                    <?php
+                }
+                ?>
+
+                
+
+            </a>
+        </li>
         <li class="menu-item open" data-menu="general">
             <a href="javascript:void(0)" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-grid"></i>
@@ -44,7 +106,13 @@
                 </li>
             </ul>
         </li>
-        
+        <li class="menu-item" data-menu="report">
+            <a href="../report/index.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-file"></i>
+                <div data-i18n="Basic">รายงานต่างๆ</div>
+
+            </a>
+        </li>
 
     </ul>
 </aside>

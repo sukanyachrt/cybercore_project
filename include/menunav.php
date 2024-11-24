@@ -70,7 +70,7 @@ FROM	producttype WHERE	protype_status = 1 GROUP BY	protype_id";
                     <button class="dropbtn"><i class="bi bi-person" style="font-size: 20px;"></i>
                         <?php
                         if (isset($_SESSION['customer_id'])) {
-                            echo $_SESSION['customer_fname']." ".$_SESSION['customer_fname'];
+                            echo $_SESSION['customer_fname']." ".$_SESSION['customer_lname'];
                         }
                         ?>
                         <i class="bi bi-caret-down-fill"></i>
