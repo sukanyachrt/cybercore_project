@@ -41,7 +41,7 @@ for ($i = 0; $i <= $DateDiff; $i++) {
             orders_detail.product_id
                 FROM orders_detail
                 INNER JOIN product ON orders_detail.product_id = product.product_id
-                INNER JOIN productgroup ON product.progroup_id = productgroup.progroup_id 
+                INNER JOIN producttype ON product.protype_id = producttype.protype_id  
                 WHERE order_id = '" . $order_id . "' 
                 GROUP BY orders_detail.product_id";
             $orderdetail->queryData();
@@ -87,17 +87,17 @@ for ($i = 0; $i <= $DateDiff; $i++) {
 
         $connect->sql = "SELECT
         product_name,
-        progroup_name 
+        protype_name 
         FROM
         product
-        INNER JOIN productgroup ON product.progroup_id = productgroup.progroup_id
+        INNER JOIN producttype ON product.protype_id = producttype.protype_id
         WHERE	product_id = '" . $product . "'";
 
         $connect->queryData();
         $rsconnect = $connect->fetch_AssocData();
         echo '<tr>
             <td class="text-end">' . date('d/m/Y', strtotime($datesearch)) . '</td>
-            <td class="text-end">' . $rsconnect['progroup_name'] . '</td>
+            <td class="text-end">' . $rsconnect['protype_name'] . '</td>
             <td class="text-end">' . $rsconnect['product_name'] . '  </td>
             <td class="text-end">' . $numberqty. ' ชิ้น</td>
             
