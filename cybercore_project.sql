@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2024 at 04:32 PM
+-- Generation Time: Nov 24, 2024 at 10:43 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,7 +45,7 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`customer_id`, `customer_fname`, `customer_lname`, `customer_telephone`, `c_address`, `c_email`, `c_password`, `customer_username`, `c_status`) VALUES
 (1, 'ก้องภพ', 'สุภาวงศ์', '1234567890', '-', 'kongpob@gnail.com', '123456', 'kongpob', '1'),
-(2, 'ลูกค้า 1', 'คนที่ 1', '1234567890', '-', 'customer@gmail.com', '123456', 'customer1', '1'),
+(2, 'ลูกค้า 1', 'ลูกค้า 1', '1234567890', '-', 'customer@gmail.com', '123456', 'customer1', '1'),
 (3, 'customer-2', 'customer-2', '1234567890', '-', 'customer2@gmail.com', '123456', 'customer2', '1');
 
 -- --------------------------------------------------------
@@ -89,7 +89,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `customer_id`, `order_date`, `order_status`, `order_details`) VALUES
-(1, 3, '2024-11-18 22:29:00', '2', '');
+(1, 3, '2024-11-18 22:29:00', '4', '');
 
 -- --------------------------------------------------------
 
@@ -181,6 +181,33 @@ CREATE TABLE `producttype` (
 INSERT INTO `producttype` (`protype_id`, `protype_name`, `protype_status`) VALUES
 (1, 'Notebook', '1');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_promotion`
+--
+
+CREATE TABLE `product_promotion` (
+  `productromodtion_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL COMMENT 'รหัสสินค้า',
+  `promotion_id` int(11) NOT NULL COMMENT 'รหัสโปรโมชั่น'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `promotion`
+--
+
+CREATE TABLE `promotion` (
+  `promotion_id` int(11) NOT NULL COMMENT 'รหัสโปรโมชั่น',
+  `promotion_name` varchar(255) NOT NULL COMMENT 'ชื่อโปรโมชั่น',
+  `promotion_discount` varchar(10) NOT NULL COMMENT 'ราคาส่วนลด',
+  `promotion_datestart` datetime NOT NULL COMMENT 'วันที่เริ่มใช้โปรโมชั่น',
+  `promotion_dateend` datetime NOT NULL COMMENT 'วันที่หมดโปโมชั่น',
+  `promotion_status` varchar(1) NOT NULL COMMENT 'สถานะ'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -230,6 +257,20 @@ ALTER TABLE `producttype`
   ADD PRIMARY KEY (`protype_id`);
 
 --
+-- Indexes for table `product_promotion`
+--
+ALTER TABLE `product_promotion`
+  ADD PRIMARY KEY (`productromodtion_id`),
+  ADD UNIQUE KEY `product_id` (`product_id`,`promotion_id`),
+  ADD KEY `promotion_id` (`promotion_id`);
+
+--
+-- Indexes for table `promotion`
+--
+ALTER TABLE `promotion`
+  ADD PRIMARY KEY (`promotion_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -274,6 +315,29 @@ ALTER TABLE `product`
 --
 ALTER TABLE `producttype`
   MODIFY `protype_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `product_promotion`
+--
+ALTER TABLE `product_promotion`
+  MODIFY `productromodtion_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `promotion`
+--
+ALTER TABLE `promotion`
+  MODIFY `promotion_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสโปรโมชั่น';
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `product_promotion`
+--
+ALTER TABLE `product_promotion`
+  ADD CONSTRAINT `product_promotion_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `product_promotion_ibfk_2` FOREIGN KEY (`promotion_id`) REFERENCES `promotion` (`promotion_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -94,11 +94,11 @@ while ($rsorder = $order->fetch_AssocData()) {
                         <div data-i18n="Badges">ข้อมูลประเภทสินค้า</div>
                     </a>
                 </li>
-                <li class="menu-item" data-submenu="productpromotion">
+                <!-- <li class="menu-item" data-submenu="productpromotion">
                     <a href="../productpromotion/index.php" class="menu-link">
                         <div data-i18n="Badges">โปรโมชั่นสินค้า</div>
                     </a>
-                </li>
+                </li> -->
                 <li class="menu-item " data-submenu="customer">
                     <a href="../customer/index.php" class="menu-link">
                         <div data-i18n="Alerts">ข้อมูลลูกค้า</div>
@@ -111,13 +111,13 @@ while ($rsorder = $order->fetch_AssocData()) {
                 </li>
             </ul>
         </li>
-        <li class="menu-item" data-menu="report">
+        <!-- <li class="menu-item" data-menu="report">
             <a href="../report/index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Basic">รายงานต่างๆ</div>
 
             </a>
-        </li>
+        </li> -->
 
     </ul>
 </aside>
