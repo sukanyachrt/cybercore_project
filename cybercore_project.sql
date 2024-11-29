@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2024 at 10:43 AM
+-- Generation Time: Nov 29, 2024 at 04:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -159,8 +159,11 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `protype_id`, `product_name`, `product_detail`, `product_price`, `product_num`, `product_status`, `product_image`) VALUES
-(1, 1, 'Notebook Acer Aspire Lite 16 AL16-52P-331E (Steel Gray)', 'หน้าจอแสดงผลขนาด 16.0\" ระดับ WUXGA IPS หน่วยประมวลผล Intel Core i3-1305U Processor หน่วยประมวลผลกราฟิก Intel UHD Graphics (Integrated) มาพร้อม SSD ความจุ 512GB และ RAM DDR5 8GB มาพร้อมระบบปฏิบัติการ Windows 11 Home มีซอร์ฟแวร์ Microsoft Office Home & Stud', '13990', '17', '1', 'A0164428OK_BIG_1.jpg'),
-(2, 1, 'Notebook Acer TravelMate TMP216-51-349Q/T005 (Steel Gray)', 'หน้าจอแสดงผลขนาด 16.0\" ระดับ WUXGA IPS หน่วยประมวลผล Intel Core i3-1315U Processor หน่วยประมวลผลกราฟิก Intel UHD Graphics (Integrated) มาพร้อม SSD ความจุ 512GB และ RAM DDR4 8GB บานพับกางได้ 180° แบ่งปันหน้าจอกับคนรอบข้างได้ง่ายขึ้น เทคโนโลยีตัดเสียงรบกวน ', '17990', '9', '1', 'Screenshot 2024-11-18 184102.png');
+(1, 1, 'Notebook Acer TravelMate TMP216-51-349Q/T005 (Steel Gray)', 'หน้าจอแสดงผลขนาด 16.0\" ระดับ WUXGA IPS หน่วยประมวลผล Intel Core i3-1315U Processor หน่วยประมวลผลกราฟิก Intel UHD Graphics (Integrated) มาพร้อม SSD ความจุ 512GB และ RAM DDR4 8GB บานพับกางได้ 180° แบ่งปันหน้าจอกับคนรอบข้างได้ง่ายขึ้น เทคโนโลยีตัดเสียงรบกวน ', '17990', '9', '1', 'Screenshot 2024-11-18 184102.png'),
+(2, 2, 'KEYBOARD (คีย์บอร์ด) RAPOO NK2400-BK (BLACK)', '• เชื่อมต่อด้วย USB-A • คีย์แคป อังกฤษ / ไทย • ดีไซน์ที่ช่วยป้องกันน้ำหกบนแป้นพิมพ์ • ปุ่มที่แกะสลักด้วยเลเซอร์ช่วยให้ตัวอักษรไม่หลุดลอก • ปุ่มลัดฟังก์ชันมัลติมีเดีย เช่น เพิ่ม-ลดเสียง หยุดเพลง ฯลฯ', '269', '10', '1', 'Screenshot 2024-11-29 202654.png'),
+(3, 1, 'NOTEBOOK (โน้ตบุ๊ค) HP 15-FC1001AU (SILVER)', '• AMD Ryzen 5 7535HS • 8GB DDR5 • 512GB NVMe PCIe M.2 SSD • 15.6\" FHD (1920x1080) Non-Touch • AMD Radeon Graphics (Integrated) • Windows 11 Home + Office Home & Student 2021', '16990', '12', '1', 'Screenshot 2024-11-29 215855.png'),
+(4, 3, 'SOUNDBAR (ลำโพงซาวด์บาร์) CREATIVE STAGE SE MINI (BLACK)', '• ขนาดเล็กกะทัดรัด วางใต้จอมอนิเตอร์ได้อย่างลงตัว • เทคโนโลยี SuperWide สัมผัสมิติเสียงที่กว้างขวางและสมจริง • มาพร้อมกับ Neodymium Drivers เพื่อให้เสียงเบสแน่น ทรงพลัง • การควบคุม ปุ่มปรับระดับเสียง, ปุ่มเปิด/ปิด, ปุ่มจับคู่ Bluetooth • การเชื่อมต่อ Blue', '1190', '8', '1', 'Screenshot 2024-11-29 220406.png'),
+(5, 2, 'WIRELESS KEYBOARD (คีย์บอร์ดไร้สาย) ROYAL KLUDGE RK-S98 (LIGHTCLOUD) (CHARTREUSE SWITCH RGB EN/TH)', '• Chartreuse Switch (Linear) • RGB • English / Thai Keycap • ANSI • LCD Display • Wired (Detachable USB-C to USB-A) • 2.4GHz Wireless • Bluetooth • Hot Swappable • Windows / macOS / Android', '2730', '21', '1', 'Screenshot 2024-11-29 220729.png');
 
 -- --------------------------------------------------------
 
@@ -179,34 +182,9 @@ CREATE TABLE `producttype` (
 --
 
 INSERT INTO `producttype` (`protype_id`, `protype_name`, `protype_status`) VALUES
-(1, 'Notebook', '1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `product_promotion`
---
-
-CREATE TABLE `product_promotion` (
-  `productromodtion_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL COMMENT 'รหัสสินค้า',
-  `promotion_id` int(11) NOT NULL COMMENT 'รหัสโปรโมชั่น'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `promotion`
---
-
-CREATE TABLE `promotion` (
-  `promotion_id` int(11) NOT NULL COMMENT 'รหัสโปรโมชั่น',
-  `promotion_name` varchar(255) NOT NULL COMMENT 'ชื่อโปรโมชั่น',
-  `promotion_discount` varchar(10) NOT NULL COMMENT 'ราคาส่วนลด',
-  `promotion_datestart` datetime NOT NULL COMMENT 'วันที่เริ่มใช้โปรโมชั่น',
-  `promotion_dateend` datetime NOT NULL COMMENT 'วันที่หมดโปโมชั่น',
-  `promotion_status` varchar(1) NOT NULL COMMENT 'สถานะ'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+(1, 'Notebook', '1'),
+(2, 'คีย์บอร์ด และ เมาส์', '1'),
+(3, 'ลำโพง และ หูฟัง', '1');
 
 --
 -- Indexes for dumped tables
@@ -248,27 +226,14 @@ ALTER TABLE `payment`
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`product_id`);
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `protype_id` (`protype_id`);
 
 --
 -- Indexes for table `producttype`
 --
 ALTER TABLE `producttype`
   ADD PRIMARY KEY (`protype_id`);
-
---
--- Indexes for table `product_promotion`
---
-ALTER TABLE `product_promotion`
-  ADD PRIMARY KEY (`productromodtion_id`),
-  ADD UNIQUE KEY `product_id` (`product_id`,`promotion_id`),
-  ADD KEY `promotion_id` (`promotion_id`);
-
---
--- Indexes for table `promotion`
---
-ALTER TABLE `promotion`
-  ADD PRIMARY KEY (`promotion_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -284,7 +249,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -308,7 +273,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `producttype`
@@ -317,27 +282,20 @@ ALTER TABLE `producttype`
   MODIFY `protype_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `product_promotion`
---
-ALTER TABLE `product_promotion`
-  MODIFY `productromodtion_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `promotion`
---
-ALTER TABLE `promotion`
-  MODIFY `promotion_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสโปรโมชั่น';
-
---
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `product_promotion`
+-- Constraints for table `orders_detail`
 --
-ALTER TABLE `product_promotion`
-  ADD CONSTRAINT `product_promotion_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `product_promotion_ibfk_2` FOREIGN KEY (`promotion_id`) REFERENCES `promotion` (`promotion_id`) ON DELETE CASCADE;
+ALTER TABLE `orders_detail`
+  ADD CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
+
+--
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `protype_id` FOREIGN KEY (`protype_id`) REFERENCES `producttype` (`protype_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
