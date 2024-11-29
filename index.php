@@ -6,40 +6,48 @@ $connect->connectData();
 
 ?>
 <style>
-  .row-product {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px; /* เพิ่มช่องว่างระหว่างการ์ด */
-}
 
-.card-product {
-  display: flex;
-  flex-direction: column; /* จัดเนื้อหาในแนวตั้ง */
-  height: 100%; /* ให้การ์ดมีความสูงเต็ม */
-}
 
-.card-img-top-product {
-  object-fit: cover; /* ป้องกันภาพแตก */
-  height: 200px; /* กำหนดความสูงของภาพ */
-}
+  .card-product {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* การ์ดจะมีความสูงเต็ม */
+  }
 
-.card-body-product {
-  flex: 1; /* ให้เนื้อหาใน card-body ขยายเต็มพื้นที่ */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* กระจายเนื้อหา */
-}
+  .card-img-top {
+    height: 200px;
+    /* กำหนดความสูงของรูปภาพให้เท่ากัน */
+    width: 100%;
+    /* ให้ภาพเต็มความกว้างของการ์ด */
+    padding: 10px 10px;
+  }
 
-.card-detail-product {
-  flex-grow: 1; /* ให้รายละเอียดขยายพื้นที่เต็ม */
-  overflow: hidden; /* ซ่อนข้อความส่วนเกิน */
-  text-overflow: ellipsis; /* ตัดข้อความพร้อมแสดง ... */
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* แสดงสูงสุด 3 บรรทัด */
-  -webkit-box-orient: vertical;
-}
+  .card-body-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* จัดเนื้อหาภายใน card-body ให้อยู่ในตำแหน่งที่เหมาะสม */
+    flex-grow: 1;
+    /* ให้เนื้อหาใน card-body ขยายพื้นที่เต็ม */
+  }
 
+  .card-title-product {
+    margin-top: 0;
+    /* ตัดช่องว่างข้างต้น */
+  }
+
+  .card-detail-product {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* แสดงข้อความได้สูงสุด 3 บรรทัด */
+    -webkit-box-orient: vertical;
+  }
 </style>
+
 <body>
 
   <!-- ======= Menu ======= -->
@@ -95,14 +103,13 @@ $connect->connectData();
                     <p class="card-detail card-detail-product"><?= $rsconnect['product_detail'] ?></p>
                     <a href="product.php?id=<?= $rsconnect['product_id'] ?>" class="btn btn-outline-dark me-2">ดูเพิ่มเติม</a>
                   </div>
-
                 </div>
               </div>
-
             <?php
             }
             ?>
           </div>
+
         </div>
     </section>
 
