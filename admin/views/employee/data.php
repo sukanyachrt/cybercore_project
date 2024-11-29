@@ -58,7 +58,16 @@
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label" for="employee_password">รหัสผ่าน</label>
                                                 <div class="col-sm-10 form-group">
-                                                    <input type="text" id="employee_password" name="employee_password" class="form-control" placeholder="รหัสผ่าน" />
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="<?php if (!isset($_GET['id'])) {
+                                                                            echo "text";
+                                                                        } else {
+                                                                            echo "password";
+                                                                        } ?>" id="employee_password" name="employee_password" class="form-control" placeholder="รหัสผ่าน" />
+                                                        <button type="button" class="btn btn-outline-secondary toggle-username">
+                                                            <i class="bx bx-hide"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -151,7 +160,7 @@
                 cache: false,
                 data: $('#employeeForm').serialize(),
                 success: function(Res) {
-                   if (Res.result >= 0) {
+                    if (Res.result >= 0) {
                         sessionStorage.setItem('toastrShown', 'save');
                         location.href = 'index.php';
 
@@ -225,7 +234,7 @@
             employee_fname: {
                 required: "โปรดกรอกนามสกุลพนักงาน",
             },
-          
+
             employee_username: {
                 required: "กรุณากรอก Username",
                 digits: "กรุณากรอกเฉพาะตัวเลข",
@@ -256,4 +265,25 @@
     $.validator.addMethod("alphanumeric", function(value, element) {
         return this.optional(element) || /^[a-zA-Z0-9]+$/.test(value);
     }, "โปรดกรอกข้อมูลที่มีเฉพาะตัวเลขและตัวอักษร (a-z)");
+    const passwordField = $('#employee_password');
+
+    // เปลี่ยนเป็น password ทันทีที่เริ่มพิมพ์
+    passwordField.on('input', function() {
+        if ($(this).val() !== '' && $(this).attr('type') === 'text') {
+            $(this).attr('type', 'password');
+        }
+    });
+    $('.toggle-username').on('click', function() {
+        const passwordField = $('#employee_password');
+        const icon = $(this).find('i');
+
+        // เปลี่ยนประเภท input และไอคอน
+        if (passwordField.attr('type') === 'password') {
+            passwordField.attr('type', 'text');
+            icon.removeClass('bx-hide').addClass('bx-show'); // เปลี่ยนเป็น icon ตาเปิด
+        } else {
+            passwordField.attr('type', 'password');
+            icon.removeClass('bx-show').addClass('bx-hide'); // เปลี่ยนเป็น icon ตาปิด
+        }
+    });
 </script>
