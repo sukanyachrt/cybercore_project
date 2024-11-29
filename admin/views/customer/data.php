@@ -39,30 +39,40 @@
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label" for="customer_fname">ชื่อลูกค้า</label>
                                                 <div class="col-sm-10 form-group">
-                                                    <input type="text" class="form-control"  id="customer_fname" name="customer_fname" placeholder="ชื่อลูกค้า" <?php if (isset($_GET['id'])) { echo "ReadOnly"; }?> />
+                                                    <input type="text" class="form-control" id="customer_fname" name="customer_fname" placeholder="ชื่อลูกค้า" <?php if (isset($_GET['id'])) {
+                                                                                                                                                                    echo "ReadOnly";
+                                                                                                                                                                } ?> />
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label" for="customer_lname">นามสกุลลูกค้า</label>
                                                 <div class="col-sm-10 form-group">
-                                                    <input type="text" class="form-control" id="customer_lname" name="customer_lname" placeholder="นามสกุลลูกค้า" <?php if (isset($_GET['id'])) { echo "ReadOnly"; }?> />
+                                                    <input type="text" class="form-control" id="customer_lname" name="customer_lname" placeholder="นามสกุลลูกค้า" <?php if (isset($_GET['id'])) {
+                                                                                                                                                                        echo "ReadOnly";
+                                                                                                                                                                    } ?> />
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label" for="c_address">ที่อยู่</label>
                                                 <div class="col-sm-10 form-group">
                                                     <div class="input-group input-group-merge">
-                                                        <textarea class="form-control" id="c_address" name="c_address" rows="2" placeholder="ที่อยู่" <?php if (isset($_GET['id'])) { echo "ReadOnly"; }?>></textarea>
+                                                        <textarea class="form-control" id="c_address" name="c_address" rows="2" placeholder="ที่อยู่" <?php if (isset($_GET['id'])) {
+                                                                                                                                                            echo "ReadOnly";
+                                                                                                                                                        } ?>></textarea>
 
                                                     </div>
 
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label class="col-sm-2 col-form-label" for="customer_telephone" <?php if (isset($_GET['id'])) { echo "ReadOnly"; }?>>เบอร์โทรศัพท์</label>
+                                                <label class="col-sm-2 col-form-label" for="customer_telephone" <?php if (isset($_GET['id'])) {
+                                                                                                                    echo "ReadOnly";
+                                                                                                                } ?>>เบอร์โทรศัพท์</label>
                                                 <div class="col-sm-10 form-group">
                                                     <div class="input-group input-group-merge">
-                                                        <input type="text" id="customer_telephone" name="customer_telephone" class="form-control" placeholder="เบอร์โทรศัพท์" <?php if (isset($_GET['id'])) { echo "ReadOnly"; }?> />
+                                                        <input type="text" id="customer_telephone" name="customer_telephone" class="form-control" placeholder="เบอร์โทรศัพท์" <?php if (isset($_GET['id'])) {
+                                                                                                                                                                                    echo "ReadOnly";
+                                                                                                                                                                                } ?> />
 
                                                     </div>
 
@@ -72,7 +82,9 @@
                                                 <label class="col-sm-2 col-form-label" for="c_email">Email</label>
                                                 <div class="col-sm-10 form-group">
                                                     <div class="input-group input-group-merge">
-                                                        <input type="email" id="c_email" name="c_email" class="form-control" placeholder="อีเมล"  <?php if (isset($_GET['id'])) { echo "ReadOnly"; }?>/>
+                                                        <input type="email" id="c_email" name="c_email" class="form-control" placeholder="อีเมล" <?php if (isset($_GET['id'])) {
+                                                                                                                                                        echo "ReadOnly";
+                                                                                                                                                    } ?> />
 
                                                     </div>
 
@@ -82,7 +94,16 @@
                                                 <label class="col-sm-2 col-form-label" for="c_email">Username</label>
                                                 <div class="col-sm-10 form-group">
                                                     <div class="input-group input-group-merge">
-                                                        <input type="<?php if(!isset($_GET['id'])) { echo "text";} else { echo "password"; } ?>" id="customer_username" name="customer_username" class="form-control" placeholder="Username" <?php if (isset($_GET['id'])) { echo "ReadOnly"; }?> />
+                                                        <input type="<?php if (!isset($_GET['id'])) {
+                                                                            echo "text";
+                                                                        } else {
+                                                                            echo "password";
+                                                                        } ?>" id="customer_username" name="customer_username" class="form-control" placeholder="Username" <?php if (isset($_GET['id'])) {
+                                                                                                                                                                                echo "ReadOnly";
+                                                                                                                                                                            } ?> />
+                                                        <button type="button" class="btn btn-outline-secondary toggle-username">
+                                                            <i class="bx bx-hide"></i>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -90,14 +111,32 @@
                                                 <label class="col-sm-2 col-form-label" for="c_email">Password</label>
                                                 <div class="col-sm-10 form-group">
                                                     <div class="input-group input-group-merge">
-                                                        <input type="<?php if(!isset($_GET['id'])) { echo "text";} else { echo "password"; } ?>" id="c_password" name="c_password" class="form-control" placeholder="Password" <?php if (isset($_GET['id'])) { echo "ReadOnly"; }?>/>
+                                                        <input
+                                                            type="<?php if (!isset($_GET['id'])) {
+                                                                        echo "text";
+                                                                    } else {
+                                                                        echo "password";
+                                                                    } ?>"
+                                                            id="c_password"
+                                                            name="c_password"
+                                                            class="form-control"
+                                                            placeholder="Password"
+                                                            <?php if (isset($_GET['id'])) {
+                                                                echo "ReadOnly";
+                                                            } ?> />
+                                                        <button type="button" class="btn btn-outline-secondary toggle-password">
+                                                            <i class="bx bx-hide"></i>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label" for="c_status">สถานะ </label>
                                                 <div class="col-sm-10 form-group">
-                                                    <select id="c_status" name="c_status" class="form-select" <?php if (isset($_GET['id'])) { echo "Disabled"; }?>>
+                                                    <select id="c_status" name="c_status" class="form-select" <?php if (isset($_GET['id'])) {
+                                                                                                                    echo "Disabled";
+                                                                                                                } ?>>
                                                         <option value="">เลือกสถานะ</option>
                                                         <option value="1">ใช้งาน</option>
                                                         <option value="0">ยกเลิก</option>
@@ -227,7 +266,7 @@
         rules: {
             customer_id: {
                 required: true,
-             },
+            },
             customer_fname: {
                 required: true,
 
@@ -309,4 +348,30 @@
     $.validator.addMethod("alphanumeric", function(value, element) {
         return this.optional(element) || /^[a-zA-Z0-9]+$/.test(value);
     }, "โปรดกรอกข้อมูลที่มีเฉพาะตัวเลขและตัวอักษร (a-z)");
+    $('.toggle-password').on('click', function() {
+        const passwordField = $('#c_password');
+        const icon = $(this).find('i');
+
+        // เปลี่ยนประเภท input และไอคอน
+        if (passwordField.attr('type') === 'password') {
+            passwordField.attr('type', 'text');
+            icon.removeClass('bx-hide').addClass('bx-show'); // เปลี่ยนเป็น icon ตาเปิด
+        } else {
+            passwordField.attr('type', 'password');
+            icon.removeClass('bx-show').addClass('bx-hide'); // เปลี่ยนเป็น icon ตาปิด
+        }
+    });
+    $('.toggle-username').on('click', function() {
+        const passwordField = $('#customer_username');
+        const icon = $(this).find('i');
+
+        // เปลี่ยนประเภท input และไอคอน
+        if (passwordField.attr('type') === 'password') {
+            passwordField.attr('type', 'text');
+            icon.removeClass('bx-hide').addClass('bx-show'); // เปลี่ยนเป็น icon ตาเปิด
+        } else {
+            passwordField.attr('type', 'password');
+            icon.removeClass('bx-show').addClass('bx-hide'); // เปลี่ยนเป็น icon ตาปิด
+        }
+    });
 </script>

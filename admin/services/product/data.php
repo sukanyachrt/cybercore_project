@@ -15,13 +15,7 @@ if ($data == "updateProductStatus") {
     $connect->sql = "DELETE FROM product  WHERE product_id ='" . $_GET['id'] . "'";
     $connect->queryData();
     echo json_encode(["result" => $connect->affected_rows()]);
-    // $row = $connect->affected_rows();
-    // if($row>0){
-    //     json_encode(["result"=>"ลบข้อมูลเรียบร้อยแล้วค่ะ"]);
-    // }
-    // else{
-    //     json_encode(["result"=>"ไม่สามารถลบข้อมูลนี้ได้"]);
-    // }
+   
 } else if ($data == "maxIdProduct") {
     $connect->sql = "SELECT	MAX( product_id ) AS maxid FROM	product";
     $connect->queryData();
