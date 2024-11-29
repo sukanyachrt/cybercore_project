@@ -95,7 +95,7 @@ $connect->connectData();
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label" for="product_num">จำนวนสินค้าใน Stock </label>
                                                 <div class="col-sm-10 form-group">
-                                                    <input type="text" class="form-control" style="background-color: #FFB5DA; color:red" id="product_num" name="product_num" placeholder="จำนวนสินค้า" />
+                                                    <input type="text" class="form-control" style="background-color: #FFB5DA; color:red" id="product_num" name="product_num" placeholder="จำนวนสินค้า" value="5" />
                                                 </div>
                                             </div>
                                             <?php
@@ -143,7 +143,7 @@ $connect->connectData();
                                                     <input type='file' id="product_image" onchange="readURL(this);" accept="image/png, image/gif, image/jpeg, image/jpg" />
                                                 </div>
                                             </div>
-                                            <div class="row mb-3">
+                                            <!-- <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label" for="product_status">สถานะ </label>
                                                 <div class="col-sm-10 form-group">
                                                     <select id="product_status" name="product_status" class="form-select">
@@ -152,7 +152,7 @@ $connect->connectData();
                                                         <option value="0">ยกเลิก</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
 
 
@@ -236,9 +236,12 @@ $connect->connectData();
     $("#btnSave").on("click", function() {
 
         if ($('#productForm').valid()) {
-            if ($('#progroup_image').val() == "") {
+            if ($('#product_image').val() == "") {
 
                 toastr.warning("โปรดอัพโหลดรูป !");
+            } else if ($('#product_num').val() < 5) {
+
+                toastr.warning("จำนวนสินค้าควรมีอย่างน้อย 5 ชิ้นค่ะ");
             } else {
                 var fd = new FormData($('#productForm')[0]);
                 var files = $('#product_image')[0].files[0];
@@ -325,6 +328,7 @@ $connect->connectData();
             product_num: {
                 required: true,
                 digits: true,
+                min: 5, 
             },
 
             updateproduct_num: {
@@ -338,7 +342,7 @@ $connect->connectData();
                 required: true,
 
             },
-            progroup_id: {
+            protype_id: {
                 required: true,
 
             },
@@ -362,6 +366,7 @@ $connect->connectData();
             product_num: {
                 required: "โปรดกรอกจำนวนสินค้าใน STOCK",
                 digits: "กรอกเฉพาะตัวเลขเท่านั้น",
+                min: "ต้องมีสินค้าขั้นต่ำอย่างน้อย 5 ชิ้น",
             },
             updateproduct_num: {
                 digits: "กรอกเฉพาะตัวเลขเท่านั้น",
@@ -375,8 +380,8 @@ $connect->connectData();
                 required: "โปรดอัพโหลดรูปสินค้า",
 
             },
-            progroup_id: {
-                required: "โปรดกลุ่มสินค้า",
+            protype_id: {
+                required: "โปรดประเภทสินค้า",
 
             },
         },

@@ -41,7 +41,7 @@ while ($rsconnect = $connect->fetch_AssocData()) {
     <td class="text-center">' . "฿" .$rsconnect['product_price'] . '</td>
     <td class="text-center">' . $rsconnect['product_num'] . '</td>
     <td class="text-center">' . $rsconnect['protype_name'] . '</td>
-    <td class="text-center">' . $product_status . '</td>
+   
     <td class="text-center">
         <a  href="data.php?id='.$rsconnect['product_id'].'"><button class="border-warning text-warning"><i class="bx bx-edit-alt me-1"></i></button></a>
         <button class="border-danger text-danger"  onclick="updateEmployStatus('.$rsconnect['product_id'].')"><i class="bx bx-trash me-1"></i></button>

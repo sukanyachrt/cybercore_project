@@ -106,13 +106,14 @@ FROM
     if ($post['updateproduct_num'] > 0) {
         $product_num = $post['product_num'] + $post['updateproduct_num'];
     }
+    $product_status = isset($post['product_status']) ? $post['product_status'] : 1;
     $connect->sql = "UPDATE `product` SET 
     `protype_id`='" . $post['protype_id'] . "',
     `product_name`='" . $post['product_name'] . "',
     `product_detail`='" . $post['product_detail'] . "',
     `product_price`='" . $post['product_price'] . "',
     `product_num`='" . $product_num . "',
-    `product_status`='" . $post['product_status'] . "',
+    `product_status`='" . $product_status. "',
     product_image = '" . $product_image . "'
     WHERE product_id='" . $_GET['id'] . "'";
     $connect->queryData();
@@ -137,6 +138,7 @@ FROM
             }
         }
     }
+    $product_status = isset($post['product_status']) ? $post['product_status'] : 1;
     $connect->sql = "INSERT INTO `product` VALUES 
     (null,
     '" . $post['protype_id'] . "',
@@ -144,7 +146,7 @@ FROM
     '" . $post['product_detail'] . "',
     '" . $post['product_price'] . "',
     '" . $post['product_num'] . "',
-    '" . $post['product_status'] . "',
+    '" . $product_status . "',
     '" . $product_image . "')";
     $connect->queryData();
 
