@@ -5,7 +5,41 @@ $connect = new Connect_Data();
 $connect->connectData();
 
 ?>
+<style>
+  .row-product {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* เพิ่มช่องว่างระหว่างการ์ด */
+}
 
+.card-product {
+  display: flex;
+  flex-direction: column; /* จัดเนื้อหาในแนวตั้ง */
+  height: 100%; /* ให้การ์ดมีความสูงเต็ม */
+}
+
+.card-img-top-product {
+  object-fit: cover; /* ป้องกันภาพแตก */
+  height: 200px; /* กำหนดความสูงของภาพ */
+}
+
+.card-body-product {
+  flex: 1; /* ให้เนื้อหาใน card-body ขยายเต็มพื้นที่ */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* กระจายเนื้อหา */
+}
+
+.card-detail-product {
+  flex-grow: 1; /* ให้รายละเอียดขยายพื้นที่เต็ม */
+  overflow: hidden; /* ซ่อนข้อความส่วนเกิน */
+  text-overflow: ellipsis; /* ตัดข้อความพร้อมแสดง ... */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* แสดงสูงสุด 3 บรรทัด */
+  -webkit-box-orient: vertical;
+}
+
+</style>
 <body>
 
   <!-- ======= Menu ======= -->
@@ -34,7 +68,7 @@ $connect->connectData();
 
   <main id="main">
 
-    
+
 
 
     <section id="product" class="product">
@@ -47,18 +81,18 @@ $connect->connectData();
 
       <div class="text-center">
         <div class="container">
-          <div class="row">
+          <div class="row row-product">
             <?php
             $connect->sql = "SELECT  * FROM  product  WHERE product_status =1";
             $connect->queryData();
             while ($rsconnect = $connect->fetch_AssocData()) {
             ?>
               <div class="col-sm-1 col-md-3 col-lg-3 mb-3">
-                <div class="card">
+                <div class="card card-product">
                   <img src="assets/img/product/<?= $rsconnect['product_image'] ?>" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title"><?= $rsconnect['product_name'] ?></h5>
-                    <p class="card-detail"><?= $rsconnect['product_detail'] ?></p>
+                  <div class="card-body card-body-product">
+                    <h5 class="card-title card-title-product"><?= $rsconnect['product_name'] ?></h5>
+                    <p class="card-detail card-detail-product"><?= $rsconnect['product_detail'] ?></p>
                     <a href="product.php?id=<?= $rsconnect['product_id'] ?>" class="btn btn-outline-dark me-2">ดูเพิ่มเติม</a>
                   </div>
 
@@ -68,13 +102,6 @@ $connect->connectData();
             <?php
             }
             ?>
-
-
-
-
-
-
-
           </div>
         </div>
     </section>

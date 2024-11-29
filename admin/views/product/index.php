@@ -91,6 +91,26 @@
                             </div>
                         </div>
                     </div>
+                    <!-- แจ้งเตือน -->
+                    <div class="modal fade" id="modal_alert" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header bg-dark ">
+                                    <h4 class="modal-title text-white" id="exampleModalLabel2">แจ้งเตือน</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h5 class="alert-msg"></h5>
+                                </div>
+                                <div class="modal-footer text-center">
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                        ยกเลิก
+                                    </button>
+                                    <button type="button" data-bs-dismiss="modal" class="btn btn-dark">ตกลง</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <?php include("../../include/footer.php"); ?>
                     <div class="content-backdrop fade"></div>
                 </div>
@@ -182,6 +202,10 @@
             },
             error: function(error) {
                 console.log(error)
+                $('#modal_confirm_del').modal('hide');
+                $('.alert-msg').text("ไม่สารถลบข้อมูลได้ เนื่องจากมีข้อมูลการสั่งซื้อรายการสินค้านี้ !")
+                $('#modal_alert').modal('show');
+                
             }
         });
     }

@@ -63,7 +63,7 @@ include("include/header.php");
 
   include("include/menunav.php");
   ?>
-  <section class="d-flex justify-content-center align-items-center" style="background-image: url(assets/img/bg/bg4.jpg); background-size: cover; background-position: center;">
+  <section class="d-flex justify-content-center align-items-center" style="background-size: cover; background-position: center;">
     <div class="row col-md-9 col-12">
       <div class="col-12">
 
@@ -123,8 +123,9 @@ include("include/header.php");
                     <input type="text" class="form-control" id="customer_username" name="customer_username" placeholder="Username">
 
                   </div>
+                  
                   <div class="col-12 my-1 form-group">
-                    <input type="text" class="form-control" id="c_password" name="c_password" placeholder="Password">
+                    <input type="password" class="form-control" id="c_password" name="c_password" placeholder="Password">
 
                   </div>
                   <div class="col-12 mt-2">
@@ -221,8 +222,10 @@ include("include/header.php");
       $('.tab-content > div').not(target).hide();
 
       $(target).fadeIn(600);
-
+      $('input[type="password"]').val('');
     });
+
+    
 
     function showModal() {
       $('#exampleModal').modal('show')
@@ -453,6 +456,7 @@ include("include/header.php");
 
       });
     }
+    
   </script>
 
 

@@ -111,13 +111,13 @@ while ($rsorder = $order->fetch_AssocData()) {
                 </li>
             </ul>
         </li>
-        <!-- <li class="menu-item" data-menu="report">
+        <li class="menu-item" data-menu="report">
             <a href="../report/index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Basic">รายงานต่างๆ</div>
 
             </a>
-        </li> -->
+        </li>
 
     </ul>
 </aside>
